@@ -1,0 +1,138 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import _ from 'lodash';
+import { updateStudent } from '../reducers/students';
+
+class SingleStudentDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.editStudentInfo = this.editStudentInfo.bind(this);
+    this.pageReloader = this.pageReloader.bind(this)
+  }
+
+
+  render() {
+    return (
+      <div className="singleStudentView">
+        <div className="pageTitle">
+          <h2>Student Details</h2>
+          </div>
+        {
+          this.props.students.filter(currentStudent => currentStudent.id === this.props.student.id)
+          .map(currentStudent =>
+            (
+              <div key={currentStudent.id}>
+                <h1> {currentStudent.fullname} </h1>
+                <h3> Email: {currentStudent.email} </h3>
+                <h3> GPA: {currentStudent.gpa} </h3>
+              </div>
+            )
+          )
+        }
+        <div>
+          {this.getStudentCampus()}
+        </div>
+        <div>{this.editStudentForm()}</div>
+      </div>
+    )
+  }
+
+
+  getStudentCampus() {
+    return (
+      <div>
+        <h2>Currently Attending:</h2>
+        <div>
+          {
+            this.props.campuses.filter(campus => campus.id === this.props.student.campusId)
+            .map(campus =>
+              (
+                <div key={campus.id}>
+                  <NavLink to={`/campuses/${campus.id}`}>
+                    <div className="campusNameView"> {campus.name} </div>
+                    <img src={campus.imageUrl} />
+                  </NavLink>
+                  <p>{campus.description}</p>
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+    )
+  }
+
+  editStudentForm() {
+    return (
+      <div>
+        <form onSubmit={this.editStudentInfo}>
+          <div>
+            <h4>Edit Student Info: </h4>
+            <h4>
+              <input name="firstName" type="text" placeholder="First Name" />
+            </h4>
+            <h4>
+              <input name="lastName" type="text" placeholder="Last Name" />
+            </h4>
+            <h4>
+              <input name="email" type="text" placeholder="Student Email" />
+            </h4>
+            <h4>
+              {console.log(this.props.campuses)}
+              <div>
+                <select id="campusFormValue">
+                  { this.props.campuses.map(campus => {
+                    return (
+                      <option name="campus" key={campus.id} value={campus.id}>{campus.name}</option>
+                    )
+                  })}
+                </select>
+              </div>
+            </h4>
+          </div>
+          <div>
+            <input type="submit" value="Update Info" onClick={this.pageReloader} />
+          </div>
+        </form>
+      </div>
+    )
+  }
+
+
+  editStudentInfo(event) {
+    event.preventDefault();
+    const student = {
+      id: this.props.student.id,
+      firstName: event.target.firstName.value ? event.target.firstName.value : this.props.student.firstName,
+      lastName: event.target.lastName.value ? event.target.lastName.value : this.props.student.lastName,
+      email: event.target.email.value ? event.target.email.value : this.props.student.email,
+      campusId: event.target.campus ? event.target.campus : this.props.student.campusId
+    };
+    this.props.updateStudent(student);
+    event.target.firstName.value = '';
+    event.target.email.value = '';
+    event.target.campus = 'Not Currently Enrolled';
+  }
+
+  pageReloader(){
+    return window.location.reload()
+  }
+
+}
+
+
+
+
+const mapStateToProps = ({ campuses, students }, ownProps) => {
+  const studentParamId = Number(ownProps.match.params.id);
+  return {
+    student: _.find(students, student => student.id === studentParamId),
+    campuses,
+    students
+  };
+}
+
+const mapDispatchToProps = { updateStudent };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStudentDetails);

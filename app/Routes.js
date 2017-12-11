@@ -7,9 +7,10 @@
 // import Home from './components/Home';
 // import AllCampusesList from './components/Campuses/AllCampusesList';
 // import CampusDetail from './components/Campuses/CampusDetail';
-// import StudentList from './components';
+// import AllStudentsList from './components/Students/AllStudentsList';
 // import StudentDetail from './components/Students/StudentDetail';
-// import { fetchCampuses, fetchStudents } from './store';
+// import { fetchCampuses, fetchStudents } from './reducers';
+//
 //
 // class Routes extends Component {
 //
@@ -23,10 +24,10 @@
 //         <Root>
 //           <Switch>
 //             <Route exact path="/" component={Home} />
-//             <Route exact path="/campuses" component={AllCampusesList} />
-//             <Route exact path="/campuses/:id" component={CampusDetail} />
-//             <Route exact path="/students" component={StudentList} />
-//             <Route exact path="/students/:id" component={StudentDetail} />
+//             <Route exact path="/campuses" component={AllCampuses} />
+//             <Route exact path="/campuses/:id" component={SingleCampus} />
+//             <Route exact path="/students" component={AllStudents} />
+//             <Route exact path="/students/:id" component={SingleStudent} />
 //           </Switch>
 //         </Root>
 //       </Router>
@@ -34,6 +35,7 @@
 //   }
 //
 // }
+//
 // const mapState = null;
 //
 // const mapDispatch = dispatch => ({

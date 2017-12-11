@@ -22,9 +22,9 @@ body {
 }
 
 a {
-    color: white;
-    text-decoration: none;
-    padding: 4px;
+  color: white;
+  text-decoration: none;
+  padding: 4px;
 }
 
 a:hover {
@@ -36,6 +36,10 @@ a:hover {
   font-size: 15px;
   width: 100%;
   padding: 2%;
+}
+
+.campusNameView {
+  font-size: 30px
 }
 
 /*------ CAMPUS LIST VIEW ------*/
@@ -61,6 +65,17 @@ a:hover {
   justify-content: center;
 }
 
+#addCampusForm {
+  display: flex;
+  width: 10%;
+  padding: 4rem;
+  background-color: lightgray;
+  outline-style: dotted;
+  outline-width: thin;
+  outline-color: gray;
+  flex-direction: column;
+}
+
 
 /*------ STUDENT LIST VIEW ------*/
 
@@ -73,6 +88,63 @@ a:hover {
   font-size: 12px;
 }
 
-.studentLink {
+.studentContainer {
+  display: flex;
+  justify-content: center;
+  width: inherit;
+  font-size: 14px;
+  flex: 0 0;
+  flex-direction: column;
+}
+
+.singleStudentView {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: lightgray;
+  font-size: 12px;
+}
+
+
+.studentNameLink {
+  font-size: 19px;
   color: green;
+}
+
+.gpaBox {
+  padding: 4px;
+  display: flex;
+  font-size: 14px;
+  color: black;
+}
+
+.studentList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+
+#addStudentForm {
+  display: flex;
+  width: 100%;
+  padding: 4rem;
+  outline-style: dotted;
+  outline-width: thin;
+  outline-color: gray;
+  flex-direction: column;
+}
+
+#submitButton {
+  display: flex;
+  width: 4%;
+  padding-right: 3rem;
+  background-color: skyblue;
+  outline-style: dotted;
+  outline-width: thin;
+  outline-color: gray;
+  flex-direction: row;
 }

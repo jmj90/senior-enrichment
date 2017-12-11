@@ -46,7 +46,7 @@ const Campuses = db.define('campuses', {
   },
   imageUrl: {
     type: Sequelize.TEXT,
-    defaultValue: 'http://www.orient-gates.com/En/wp-content/uploads/2017/06/ea25ed4a-3109-41University-of-Malaya-UM-180x180.jpg'
+    defaultValue: 'https://isc.uw.edu/wp-content/uploads/2017/06/cropped-favicon-flat-180x180.png'
   },
   description: {
     type: Sequelize.TEXT

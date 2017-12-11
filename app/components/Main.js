@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './Navbar'
-import CampusList from './CampusList'
-import StudentList from './StudentList'
-import Home from './Home'
-import SingleCampus from './SingleCampus'
-import store, { fetchCampuses, fetchStudents } from '../store';
+import { Router, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
+import Navbar from './Navbar';
+import history from '../history';
+import CampusesList from './CampusesList';
+import StudentsList from './StudentsList';
+import Home from './Home';
+import store from '../store';
+import SingleStudentDetails from './SingleStudentDetails';
+import SingleCampusDetails from './SingleCampusDetails';
+import { fetchCampuses } from '../reducers/campuses';
+import { fetchStudents } from '../reducers/students';
 
 
-
-export default class Main extends Component {
+class Main extends Component {
 
   componentDidMount () {
     const campusesThunk = fetchCampuses();
@@ -20,20 +24,33 @@ export default class Main extends Component {
 
   render(){
     return (
-      <Router>
+      <Router history={history}>
         <div>
           <div className="header">
-              <h1>Campus Manager</h1>
-              <div className="navbar">
-                <Navbar />
-              </div>
+            <h1>Campus Manager</h1>
+            <div className="navbar">
+              <Navbar />
+            </div>
           </div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/campuses" component={CampusList} />
-            <Route exact path="/students" component={StudentList} />
-            <Route exact path="/campuses/:id" component={SingleCampus} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/campuses" component={CampusesList} />
+          <Route exact path="/students" component={StudentsList} />
+          <Route exact path="/students/:id" component={SingleStudentDetails} />
+          <Route exact path="/campuses/:id" component={SingleCampusDetails} />
         </div>
       </Router>
     );
   }
 }
+
+const mapState = null;
+
+const mapDispatch = dispatch => ({
+  fetchInitialData: () => {
+    dispatch(fetchCampuses());
+    dispatch(fetchStudents());
+  }
+});
+
+
+export default connect(mapState, mapDispatch)(Main);

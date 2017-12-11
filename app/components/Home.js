@@ -11,6 +11,9 @@ export default class Home extends Component {
         <div className="pageTitle">
           <h3>Welcome To the Campus Manager</h3>
         </div>
+        <div id="homeImage">
+          <img src="http://www.lboro.ac.uk/media/wwwlboroacuk/external/content/abouttheuniversity/hazlerigg.jpg" />
+        </div>
       </div>
     )
   }

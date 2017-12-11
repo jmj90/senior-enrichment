@@ -22,7 +22,7 @@ router.put('/:campusId', function (req, res, next) {
   const campusId = req.params.campusId;
 
   Campuses.findById(campusId)
-    .then(student => student.update(req.body))
+    .then(campus => campus.update(req.body))
     .then(res.status(200).send('Updated Campus Information'))
     .catch(next);
 });
