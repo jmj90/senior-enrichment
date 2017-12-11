@@ -19,13 +19,13 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 
 ### The tools
 
-Use at least Sequelize, Express and React when creating this app. This app is small, so just using React is reasonable, but note that without practicing with more frontend libraries you will have a steep learning curve in senior phase. If you are going forward with ***just React*** you will benefit from **deleting all references to React-Redux, Redux and React-Router** (so you don't confuse yourself with trying to use something in half your files and not the other half). 
+Use at least Sequelize, Express and React when creating this app. This app is small, so just using React is reasonable, but note that without practicing with more frontend libraries you will have a steep learning curve in senior phase. If you are going forward with ***just React*** you will benefit from **deleting all references to React-Redux, Redux and React-Router** (so you don't confuse yourself with trying to use something in half your files and not the other half).
 
 If you feel ready, start by incorporating React-Router, Redux and React-Redux (we helped get you started with this!)! If you go this route, it will be great practice and will prepare you **well** for senior phase.
 
 ### DB Design
 
-- Students
+- Students √
   * have profile info including:
     * firstName - not empty or null
     * lastName - not empty or null
@@ -34,7 +34,7 @@ If you feel ready, start by incorporating React-Router, Redux and React-Redux (w
   * must have a virtual 'name' field which is the concatenation of firstName and lastName
   * must be assigned to a campus
 
-- Campuses
+- Campuses √
   * have profile info including:
     * name - not empty or null
     * imageUrl - default value
@@ -71,33 +71,33 @@ If you feel ready, start by incorporating React-Router, Redux and React-Redux (w
 
 ```
 GET
-- all campuses
-- a campus by id
-- all students
-- a student by id
+- all campuses √
+- a campus by id √
+- all students  √
+- a student by id √
 ```
 
 ```
 POST
-- new campus
-- new student
+- new campus √
+- new student √
 ```
 
 ```
 PUT
-- updated student info for one student
-- updated campus info for one campus
+- updated student info for one student √
+- updated campus info for one campus √
 ```
 
 ```
 DELETE
-- a campus
-- a student
+- a campus √
+- a student √
 ```
 
-### How to test functionality without a frontend
+### How to test functionality without a frontend √
 - GET: use your browser
-- POST / PUT / DELETE : 
+- POST / PUT / DELETE :
  - CLI (command line interface) with `curl`
    - e.g. `curl -H "Content-Type: application/json" -X POST -d '{"username":"kate","password":"1234"}' http://localhost:3000/api/login`
    - `-H`: headers. `-X`: verb. `-d`: data (must be of the type specified in headers). http://[address]:[port]/[route_path]
@@ -118,4 +118,3 @@ Once you've recorded your screencast, please *upload it to YouTube as an unliste
 - Routes (25%)
 - Frontend logic and functionality (25%)
 - Design + Bonus features (up to 10 Extra Credit points)
-

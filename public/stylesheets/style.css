@@ -1,0 +1,78 @@
+body {
+  background-color: black;
+}
+
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: white;
+  padding-left: 1rem;
+  background-color: #333333;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: space-between;
+  align-self: center;
+  padding: 2%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    padding: 4px;
+}
+
+a:hover {
+  color: lightblue;
+  text-decoration: none;
+}
+
+.pageTitle {
+  font-size: 15px;
+  width: 100%;
+  padding: 2%;
+}
+
+/*------ CAMPUS LIST VIEW ------*/
+
+.campusDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: lightgray;
+  font-size: 12px;
+}
+
+.campusItem {
+  display: flex;
+  flex: 0 0;
+  flex-direction: column;
+}
+
+#campusName {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/*------ STUDENT LIST VIEW ------*/
+
+.studentDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: lightgray;
+  font-size: 12px;
+}
+
+.studentLink {
+  color: green;
+}
